@@ -1,3 +1,9 @@
+/* theme */
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+/* core */
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,4 +63,34 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.data-table .p-datatable-header {
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.data-table th {
+  background-color: #243b55 !important;
+  color: white !important;
+  border: 1px solid rgba(252, 252, 252, 0.269) !important;
+}
+
+.data-table th:nth-child(3) {
+  @apply flex justify-center;
+}
+
+.data-table tr {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid rgba(252, 252, 252, 0.269) !important;
+}
+
+.data-table td {
+  border: 1px solid rgba(252, 252, 252, 0.269) !important;
+}
+
+.data-table td:nth-child(3) {
+  @apply flex justify-center;
 }
