@@ -1,15 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App.tsx'
-import './index.css'
-import CandidateApp from './pages/CandidateApp/CandidateApp'
-import { CreateCoupon, ResearcherApp } from './pages/ResearchersApp'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './App.tsx';
+import './index.css';
+import CandidateApp from './pages/CandidateApp/CandidateApp';
+import Congratulations from './pages/CandidateApp/Congratulations.tsx';
+import { CreateCoupon, ResearcherApp } from './pages/ResearchersApp';
+import { store } from './redux/store';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <App />,
   },
   {
     path: 'setup',
@@ -17,16 +20,22 @@ const router = createBrowserRouter([
   },
   {
     path: 'setup/create',
-    element: <CreateCoupon />
+    element: <CreateCoupon />,
   },
   {
     path: 'redeem',
-    element: <CandidateApp />
-  }
-])
+    element: <CandidateApp />,
+  },
+  {
+    path: '/congrats',
+    element: <Congratulations />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </React.StrictMode>
+);
