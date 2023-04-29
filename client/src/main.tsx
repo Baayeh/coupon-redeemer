@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
 import CandidateApp from './pages/CandidateApp/CandidateApp'
-import { ResearcherApp } from './pages/ResearchersApp'
+import { CreateCoupon, ResearcherApp } from './pages/ResearchersApp'
 
 const router = createBrowserRouter([
   {
@@ -12,11 +12,15 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: '/setup',
-    element: <ResearcherApp />
+    path: 'setup',
+    element: <ResearcherApp />,
   },
   {
-    path: '/redeem',
+    path: 'setup/create',
+    element: <CreateCoupon />
+  },
+  {
+    path: 'redeem',
     element: <CandidateApp />
   }
 ])

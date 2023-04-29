@@ -1,8 +1,8 @@
+import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { Tag } from 'primereact/tag';
-import { Link } from "react-router-dom";
-import { Button } from 'primereact/button';
+import { Link, useNavigate } from "react-router-dom";
 
 type CouponProps = {
   id: number;
@@ -12,6 +12,7 @@ type CouponProps = {
 }
 
 export const ResearcherApp = () => {
+  const navigate = useNavigate();
   const coupons: CouponProps[] = [
     {
       id: 1,
@@ -57,7 +58,7 @@ export const ResearcherApp = () => {
   const header = (
     <div className="flex flex-wrap items-center justify-between gap-2">
       <span className="text-xl text-900 font-bold">Coupons</span>
-      <Button icon="pi pi-plus" rounded raised />
+      <Button icon="pi pi-plus" rounded raised onClick={() => navigate('create')} />
     </div>
   );
 
