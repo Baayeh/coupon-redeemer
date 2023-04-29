@@ -14,7 +14,7 @@ class CouponsController < ApplicationController
     else
       render json: {
         error: "No available coupons",
-      }
+      }, status: :not_found
     end
   end
 
